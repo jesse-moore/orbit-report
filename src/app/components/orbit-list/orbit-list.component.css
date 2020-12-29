@@ -16,8 +16,8 @@ table {
   border-radius: 5px;
   overflow: hidden;
   margin: 12px auto;
-  min-width: 300px;
   background: #dad8d8;
+  width: 700px;
 }
 
 .header-row {
