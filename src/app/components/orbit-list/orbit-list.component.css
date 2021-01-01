@@ -8,7 +8,7 @@
 }
 
 .warning {
-  background-color: #da8a8a;
+  background-color: #da8a8a !important;
 }
 
 table {
@@ -34,5 +34,5 @@ td {
 }
 
 tr:nth-child(even) {
-	background-color: darkseagreen;
+  background-color: darkseagreen;
 }

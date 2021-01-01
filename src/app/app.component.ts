@@ -18,7 +18,7 @@ export class AppComponent {
   title = 'orbit-report';
   searchTerm = '';
   sourceList: Satellite[];
-  displayList: Satellite[];
+  displayList: Satellite[] = [];
 
   constructor() {
     this.sourceList = [];
