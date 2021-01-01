@@ -19,6 +19,7 @@ export class AppComponent {
   searchTerm = '';
   sourceList: Satellite[];
   displayList: Satellite[] = [];
+  satTypes: Set<string>;
 
   constructor() {
     this.sourceList = [];
@@ -50,6 +51,9 @@ export class AppComponent {
             );
             this.sourceList = [...this.sourceList, ...newSatellites];
             this.displayList = [...this.sourceList];
+            this.satTypes = new Set(
+              this.sourceList.map((sat: Satellite) => sat.type)
+            );
           }.bind(this)
         );
       }.bind(this)
@@ -57,7 +61,16 @@ export class AppComponent {
   }
   search(searchTerm: string): void {
     this.displayList = this.sourceList.filter((sat) => {
-      return sat.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      if (sat.name.toLowerCase().includes(lowerCaseSearchTerm)) {
+        return true;
+      }
+      if (sat.type.toLowerCase().includes(lowerCaseSearchTerm)) {
+        return true;
+      }
+      if (sat.orbitType.toLowerCase().includes(lowerCaseSearchTerm)) {
+        return true;
+      }
     });
   }
 }
